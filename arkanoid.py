@@ -20,12 +20,12 @@ hit_sound = pygame.mixer.Sound(path.join(snd_dir, "expl3.wav"))
 pong_sound = pygame.mixer.Sound(path.join(snd_dir, "pong.wav"))
 
 infoObject = pygame.display.Info()
-# WIDTH, HEIGHT = infoObject.current_w, infoObject.current_h  # Разрешение экрана/Ширина, Высота
-WIDTH, HEIGHT = 1200, 800
+WIDTH, HEIGHT = infoObject.current_w, infoObject.current_h  # Разрешение экрана/Ширина, Высота
+# WIDTH, HEIGHT = 1200, 800
 fps = 60  # Кол-во кадров в секундку
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
-# screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
+# screen = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
+screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 font = pygame.font.SysFont(None, 20)
 
 def draw_text(text, font, color, surface, x, y):
@@ -53,16 +53,16 @@ def main_menu():
         )
         mx, my = pygame.mouse.get_pos()
 
-        button_1 = pygame.Rect(WIDTH / 2 - 200, HEIGHT / 2 - 50, 400, 100)
+        button_1 = pygame.Rect(WIDTH // 2 - 200, HEIGHT // 2 - 50, 400, 100)
 
-
+        global click
         if button_1.collidepoint((mx, my)):
             if click:
                 # main.run()
                 run()
 
         pygame.draw.rect(screen, (255, 0, 0), button_1)
-        draw_text('ИГРАТЬ', pygame.font.SysFont(None, 35, True), (255, 255, 255), screen, WIDTH / 2 - 50, HEIGHT / 2 - 13)
+        draw_text('ИГРАТЬ', pygame.font.SysFont(None, 35, True), (255, 255, 255), screen, WIDTH // 2 - 50, HEIGHT // 2 - 13)
         click = False
         for event in pygame.event.get():
             if event.type == QUIT:
