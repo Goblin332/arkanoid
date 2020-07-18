@@ -99,7 +99,7 @@ platform = pygame.Rect(
 ball_rad = 20
 ball_speed = 6
 ball_rect = int(ball_rad * 2 ** 0.5)
-ball = pygame.Rectm(rnd(ball_rect, WIDTH - ball_rect), HEIGHT // 2, ball_rect, ball_rect)
+ball = pygame.Rect(rnd(ball_rect, WIDTH - ball_rect), HEIGHT // 2, ball_rect, ball_rect)
 dx, dy = 1, -1
 
 # Настройки блоков
