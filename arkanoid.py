@@ -99,14 +99,17 @@ platform = pygame.Rect(
 ball_rad = 20
 ball_speed = 6
 ball_rect = int(ball_rad * 2 ** 0.5)
-ball = pygame.Rect(rnd(ball_rect, WIDTH - ball_rect), HEIGHT // 2, ball_rect, ball_rect)
+ball = pygame.Rectm(rnd(ball_rect, WIDTH - ball_rect), HEIGHT // 2, ball_rect, ball_rect)
 dx, dy = 1, -1
+
 # Настройки блоков
+countBlockInRow = WIDTH // 120
+
 block_set = [
-    pygame.Rect(10 + 120 * i, 40 + 70 * j, 100, 50) for i in range(13) for j in range(6)
+    pygame.Rect(10 + 120 * i, 40 + 70 * j, 100, 50) for i in range(countBlockInRow) for j in range(6)
 ]
 color_set = [
-    (rnd(30, 256), rnd(30, 256), rnd(30, 256)) for i in range(13) for j in range(6)
+    (rnd(30, 256), rnd(30, 256), rnd(30, 256)) for i in range(countBlockInRow) for j in range(6)
 ]
 
 img = pygame.image.load("backdoor.jpg").convert()
@@ -213,12 +216,8 @@ def button (x, y, w, h, bg_color, focus_bg_color, action=None):
         pygame.draw.rect(screen, bg_color, (x, y, w, h))
         # pygame.mouse.set_cursor(cursors[0])
         if (click[0] == 1 and action != None):
-            if  (action == "Start"):
-                runfds()
-            elif (action == "Game"):
+            if (action == "Game"):
                 run()
-            # elif  (action == "Load"):
-                 ##Function that makes the loading of the saved file##
             elif  (action == "Exit"):
                 sys.exit()
                 pygame.quit()
