@@ -17,7 +17,7 @@ snd_dir = path.join(path.dirname(__file__), "snd")
 # Добавляем музыку/звуки
 pygame.mixer.music.load("8-Bit Misfits - Old Town Road.mp3")
 pygame.mixer.music.play(loops=-1)
-pygame.mixer.music.set_volume(0.4)
+pygame.mixer.music.set_volume(0.3)
 
 hit_sound = pygame.mixer.Sound(path.join(snd_dir, "expl3.wav"))
 pong_sound = pygame.mixer.Sound(path.join(snd_dir, "pong.wav"))
