@@ -1,4 +1,4 @@
-from os import path
+from oпs import path
 from random import (randrange as rnd)  # модуль РАНДОМ. Для генератора диапазона случайных чисел
 
 import pygame, sys
